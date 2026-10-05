@@ -1,16 +1,12 @@
 package com.example.employee_api.service;
 
 import java.util.*;
-import java.util.Optional;
-
-import javax.swing.Spring;
-
-import org.hibernate.sql.Delete;
-import org.hibernate.sql.Update;
 import org.springframework.stereotype.Service;
+
 import com.example.employee_api.repository.*;
 import com.example.employee_api.dto.*;
 import com.example.employee_api.entity.*;
+import com.example.employee_api.exception.*;
 
 @Service
 public class EmployeeService {
