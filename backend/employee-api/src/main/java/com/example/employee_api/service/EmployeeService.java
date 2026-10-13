@@ -43,6 +43,7 @@ public class EmployeeService {
         employee.setLastName(request.lastName());
         employee.setEmail(request.email());
         employee.setDepartment(department);
+        employee.setPhone(request.phone());
         return toResponse(employeeRepository.save(employee));
     }
 
@@ -57,6 +58,7 @@ public class EmployeeService {
         employee.setLastName(request.lastName());
         employee.setEmail(request.email());
         employee.setDepartment(department);
+        employee.setPhone(request.phone());
         return toResponse(employeeRepository.save(employee));
     }
 
@@ -69,11 +71,12 @@ public class EmployeeService {
 
     private EmployeeResponse toResponse(Employee employee) {
         return new EmployeeResponse(
-                employee.getId(),
-                employee.getFirstName(),
-                employee.getLastName(),
-                employee.getEmail(),
-                employee.getDepartment().getId(),
-                employee.getDepartment().getName());
+            employee.getId(),
+            employee.getFirstName(),
+            employee.getLastName(),
+            employee.getEmail(),
+            employee.getDepartment().getId(),
+            employee.getPhone(),
+            employee.getDepartment().getName());
     }
 }
