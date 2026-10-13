@@ -14,12 +14,13 @@ public class Employee {
     private String lastName;
     @Column(nullable = false, unique = true, length = 150)
     private String email;
-    @Column(unique = true)
-    private String phone;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
+
+    @Column(unique = true)
+    private String phone;
 
     public Employee() {
     }
@@ -41,12 +42,12 @@ public class Employee {
         return this.email;
     }
 
-    public String getPhone() {
-        return this.phone;
-    }
-
     public Department getDepartment() {
         return this.department;
+    }
+
+    public String getPhone() {
+        return this.phone;
     }
 
     public void setFirstName(String firstName) {
@@ -61,11 +62,11 @@ public class Employee {
         this.email = email;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
