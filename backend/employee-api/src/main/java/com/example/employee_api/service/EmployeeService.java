@@ -76,7 +76,7 @@ public class EmployeeService {
             employee.getLastName(),
             employee.getEmail(),
             employee.getDepartment().getId(),
-            employee.getPhone(),
-            employee.getDepartment().getName());
+            employee.getDepartment().getName(),
+            employee.getPhone());
     }
 }

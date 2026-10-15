@@ -19,7 +19,7 @@ public class Employee {
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
 
-    @Column(unique = true)
+    @Column(name = "phone", unique = true, length = 30)
     private String phone;
 
     public Employee() {
