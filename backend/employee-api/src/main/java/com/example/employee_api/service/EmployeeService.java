@@ -4,21 +4,18 @@ import java.util.*;
 import org.springframework.stereotype.Service;
 
 import com.example.employee_api.repository.*;
+
+import lombok.RequiredArgsConstructor;
+
 import com.example.employee_api.dto.*;
 import com.example.employee_api.entity.*;
 import com.example.employee_api.exception.*;
 
+@RequiredArgsConstructor 
 @Service
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final DepartmentRepository departmentRepository;
-
-    public EmployeeService(
-            EmployeeRepository employeeRepository,
-            DepartmentRepository departmentRepository) {
-        this.employeeRepository = employeeRepository;
-        this.departmentRepository = departmentRepository;
-    }
 
     public List<EmployeeResponse> getAll() {
         return employeeRepository.findAll()

@@ -9,14 +9,13 @@ import com.example.employee_api.dto.EmployeeRequest;
 import com.example.employee_api.dto.EmployeeResponse;
 import com.example.employee_api.service.*;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor 
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
     private final EmployeeService employeeService;
-
-    public EmployeeController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
 
     @GetMapping
     public ResponseEntity<List<EmployeeResponse>> getAll() {

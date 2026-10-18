@@ -1,10 +1,17 @@
 package com.example.employee_api.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "employee")
 public class Employee {
+    @Setter(AccessLevel.NONE)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,52 +28,4 @@ public class Employee {
 
     @Column(name = "phone", unique = true, length = 30)
     private String phone;
-
-    public Employee() {
-    }
-
-    // getters and setters
-    public Long getId() {
-        return this.id;
-    }
-
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public Department getDepartment() {
-        return this.department;
-    }
-
-    public String getPhone() {
-        return this.phone;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 }
