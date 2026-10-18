@@ -8,6 +8,7 @@ import java.util.function.Function;
 import javax.crypto.SecretKey;
 
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -17,6 +18,7 @@ import io.jsonwebtoken.security.Keys;
 /**
  * JwstService
  */
+@Service
 public class JwtService {
     private final static String SECRET_KEY = "8d9a9c18e7e935f5b9327d336eb65008c8daf9235747ae45e1c06ee782ccc7d3";
 
