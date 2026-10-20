@@ -20,7 +20,7 @@ import io.jsonwebtoken.security.Keys;
  */
 @Service
 public class JwtService {
-    private final static String SECRET_KEY = "8d9a9c18e7e935f5b9327d336eb65008c8daf9235747ae45e1c06ee782ccc7d3";
+    private final static String SECRET_KEY = "7ecccdd091f4bafb7ccf0d152de23ced7d1268ea3bc078fa331a48dcd094f235";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -41,14 +41,19 @@ public class JwtService {
                 .claims(extraClaims)
                 .subject(userDetails.getUsername())
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
+                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))
                 .signWith(getSignInKey(), Jwts.SIG.HS256)
                 .compact();
     }
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
-        return (username == userDetails.getUsername() && !isTokenExpired(token));
+        // System.err.println("[>[>[>[>[>  username: " + username + "  <]<]<]<]<]");
+        // System.err.println("[>[>[>[>[>  userDetails.getUsername(): " + userDetails.getUsername() + "  <]<]<]<]<]");
+        // boolean check = username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+        // System.err.println("[>[>[>[>[>  equality: " + check + "  <]<]<]<]<]");
+
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
     public boolean isTokenExpired(String token) {

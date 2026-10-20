@@ -11,7 +11,7 @@ import com.example.employee_api.service.*;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
